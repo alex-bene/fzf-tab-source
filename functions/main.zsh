@@ -17,7 +17,7 @@ if ((! $+commands[finger])); then
   (($+commands[pinky])) && finger() {command pinky $@} ||
     finger() {command whoami}
 fi
-(($+commands[pandoc])) || pandoc() {command cat ${@[-1]}}
+(($+commands[pandoc])) || pandoc() {command bat ${@[-1]}}
 (($+commands[grc])) || grc() {eval ${@[2,-1]}}
 # https://github.com/Freed-Wu/fzf-tab-source/issues/6
 if (($+commands[less])) && [ -x ~/.lessfilter ]; then
@@ -27,9 +27,10 @@ else
 fi
 
 # use pager to process the output of git
+(($+commands[delta])) && delta() {command delta --line-numbers $@} || delta() {command bat}
 (($+commands[git])) && git() {
-    command git $@ | eval $(command git config pager.$1 || echo cat)
-  }
+  command git $@ | eval $(command git config pager.$1 || command git config core.pager || echo delta)
+}
 
 tmp_dir=${TMPPREFIX:-/tmp/zsh}-fzf-tab-$USER
 

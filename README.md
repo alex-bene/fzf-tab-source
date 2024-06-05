@@ -50,6 +50,7 @@ source /the/directory/of/this/plugin/*.plugin.zsh
 You need some optional tools:
 
 - [bat](https://github.com/sharkdp/bat): view code
+- [delta](https://github.com/dandavison/delta): syntax-highlighting pager for git
 - [pandoc](https://github.com/jgm/pandoc): convert any kind of file to
   markdown. Any generated cache file will be store in same
   `/tmp/zsh-fzf-tab-$USER` as [fzf-tab](https://github.com/Aloxaf/fzf-tab)
