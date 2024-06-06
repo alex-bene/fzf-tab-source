@@ -3,4 +3,4 @@ if [[ $OSTYPE == darwin* ]]; then
   alias -g -- --no-headers='| tail -n1'
 fi
 [[ $group == 'process ID' ]] &&
-  ps -p$word -wocommand --no-headers | bat -lsh
+  grc --colour=on  ps -p $word -wocommand --no-headers | bat -lsh
