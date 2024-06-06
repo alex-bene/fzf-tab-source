@@ -1,9 +1,7 @@
 # :fzf-tab:complete:git-show:argument-rest
-case $group in
-'cached file')
-  less $realpath
-  ;;
-*)
-  git show --color=always $word
-  ;;
-esac
+gts=$(git show --color=always $word)
+if [[ $gts ]]; then
+  echo $gts
+else
+  bat --color=always --paging=never $word
+fi
